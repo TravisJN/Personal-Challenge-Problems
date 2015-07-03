@@ -11,17 +11,15 @@ String.prototype.stringCompression = function () {}; //Given two strings, implem
 
 //Writing a traditional function declaration here is necessary
 //In Babel this is not attached to window and will transpile into undefined!
-String.prototype.permutationCheck = function (str) {}; //In this problem we want to check to see if two strings are rotations of each other
-//You may only use one call to the given method .substring()
+String.prototype.permutationCheck = function (str) {
+  // Create an object with the letters of this as keys and count as value
+  // iterate through str and check against object, decrementing count for each letter
+  // if object[letter] = undefined or 0, it's not a permutation
+  var strArray = this.split('');
+  var permArray = str.split('');
+  var letterObj = {};
 
-//Example: stringRotation("thomas", "omasth"); -> true
-//Example: stringRotation("thomas", "smotha");-> false
-
-var stringRotation = function stringRotation(str1, str2) {}; //Create a function to determine if a string has all unique characters
-
-var unique = function unique(str) {
-  var strArray = str.split('');
-  var obj = {};
+  // Build letter object
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
   var _iteratorError = undefined;
@@ -30,10 +28,11 @@ var unique = function unique(str) {
     for (var _iterator = strArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var item = _step.value;
 
-      if (obj[item]) {
-        return false;
+      if (letterObj[item]) {
+        letterObj[item] = letterObj[item] + 1;
+      } else {
+        letterObj[item] = 1;
       }
-      obj[item] = true;
     }
   } catch (err) {
     _didIteratorError = true;
@@ -46,6 +45,79 @@ var unique = function unique(str) {
     } finally {
       if (_didIteratorError) {
         throw _iteratorError;
+      }
+    }
+  }
+
+  // Iterate through str checking against letterObj
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = permArray[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var item = _step2.value;
+
+      if (letterObj[item]) {
+        letterObj[item] = letterObj[item] - 1;
+      } else {
+        return false;
+      }
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2['return']) {
+        _iterator2['return']();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
+  }
+
+  return true;
+};
+; //In this problem we want to check to see if two strings are rotations of each other
+//You may only use one call to the given method .substring()
+
+//Example: stringRotation("thomas", "omasth"); -> true
+//Example: stringRotation("thomas", "smotha");-> false
+
+var stringRotation = function stringRotation(str1, str2) {};
+
+; //Create a function to determine if a string has all unique characters
+
+var unique = function unique(str) {
+  var strArray = str.split('');
+  var obj = {};
+  var _iteratorNormalCompletion3 = true;
+  var _didIteratorError3 = false;
+  var _iteratorError3 = undefined;
+
+  try {
+    for (var _iterator3 = strArray[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+      var item = _step3.value;
+
+      if (obj[item]) {
+        return false;
+      }
+      obj[item] = true;
+    }
+  } catch (err) {
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion3 && _iterator3['return']) {
+        _iterator3['return']();
+      }
+    } finally {
+      if (_didIteratorError3) {
+        throw _iteratorError3;
       }
     }
   }

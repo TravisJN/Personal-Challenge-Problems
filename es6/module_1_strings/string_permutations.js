@@ -1,7 +1,5 @@
 //Given two strings, implement a method that determines if the input string is a permutation of the other
 
-//Writing a traditional function declaration here is necessary
-//In Babel this is not attached to window and will transpile into undefined!
 String.prototype.permutationCheck = function(str) {
   // Create an object with the letters of this as keys and count as value
   // iterate through str and check against object, decrementing count for each letter
@@ -10,6 +8,7 @@ String.prototype.permutationCheck = function(str) {
   let permArray = str.split('');
   let letterObj = {};
 
+<<<<<<< HEAD:es6/module_1/string_permutations.js
   // Build letter object
   for(let item of strArray) {
     if(letterObj[item]) {
@@ -30,3 +29,6 @@ String.prototype.permutationCheck = function(str) {
 
   return true;
 };
+=======
+}; 
+>>>>>>> master:es6/module_1_strings/string_permutations.js

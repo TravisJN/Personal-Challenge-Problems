@@ -8,7 +8,6 @@ String.prototype.permutationCheck = function(str) {
   let permArray = str.split('');
   let letterObj = {};
 
-<<<<<<< HEAD:es6/module_1/string_permutations.js
   // Build letter object
   for(let item of strArray) {
     if(letterObj[item]) {
@@ -29,6 +28,3 @@ String.prototype.permutationCheck = function(str) {
 
   return true;
 };
-=======
-}; 
->>>>>>> master:es6/module_1_strings/string_permutations.js
